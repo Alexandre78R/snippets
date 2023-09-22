@@ -10,10 +10,10 @@
 		"scope": "javascript",
 		"prefix": ["for", "foralex", "for2", "forper"],
 		"body": [
-		"for (let $1 = 0; $1 < $2.length; $1++) {",
-		"  $3",
-		"}",
-		"$4"
+			"for (let $1 = 0; $1 < $2.length; $1++) {",
+			"  $3",
+			"}",
+			"$4"
 		],
 		"description": "Boucle For personalisée"
 	}
