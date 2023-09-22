@@ -17,8 +17,6 @@ Lien : [***Clique ici***](https://code.visualstudio.com/docs/editor/userdefineds
 ## Explication 
 
 ### Création d'un Snippet 
-	
-
 Pour créer une nouveau snippet voici les instructions : 
 
 - Ouvrir VSCODE
@@ -27,8 +25,10 @@ Pour créer une nouveau snippet voici les instructions :
 -  New Global Snippets file...
 - Insérer un nom pour nomer le fichier sur votre PC
 
-Ensuite un fichier va s'ouvrir , sa devrais resembler a ça :
-![Fichier Snippet](https://ibb.co/Y37QW5N)
+Ensuite, un fichier va s’ouvrir, sa devrait ressembler à ça :
+![enter image description here](https://i.ibb.co/rM2Fgm0/snippets.png)
+
+Vous allez décommenter de la ligne 9 à 17.
 
 ###  Structure d'un Snippet
 
@@ -42,14 +42,14 @@ Ensuite un fichier va s'ouvrir , sa devrais resembler a ça :
  ```
 
 -   `"Nom_du_Snippet"` : Le nom unique de l'extrait de code.
--   `"scope"` : Le type du fichier vous pouvez en indiquez plusieus avec une " , " comme  	 	séparateur. (Si vous voulez mettre tous type de fichier laisser le champs vide)
+-   `"scope"` : Le type du fichier, vous pouvez en indiquer plusieurs avec une "  , " comme séparateur. (Si vous voulez mettre tous les types de fichier, laisser le champs vide)
 -   `"prefix"` : Le préfixe qui déclenchera l'extrait lorsque vous commencerez à taper dans VSCode.
 -   `"body"` : Le code réel de l'extrait.
 -   `"description"` : Une brève description de l'extrait de code.
  
  ### Pour accédez au dossier local de vos snippets
 
-Vous pouvez utilisez le terminal pour vous rendre dans votre dossier snippets.
+Vous pouvez utiliser le terminal pour vous rendre dans votre dossier snippets.
 
 Windows : 
 - ```C:\Users\VotreNomUtilisateur\AppData\Roaming\Code\User\snippets```
@@ -63,7 +63,7 @@ Linux :
 
  - ``` ~/.config/Code/User/snippets/ ```
 
-> Note : Je n'ai pas vérifier si les chemains sur Mac et Linux marche ...
+> Note : Je n'ai pas vérifié si les chemins sur Mac et Linux marche ...
 
  
 ##  Générateur de snippet
