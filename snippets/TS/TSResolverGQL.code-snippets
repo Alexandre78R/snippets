@@ -1,0 +1,67 @@
+{
+  "Resolver Query List": {
+    "prefix": "resolverQueryList-ts",
+    "body": [
+      "@Query(() => [${1:EntityType}])",
+      "async list${2:EntityName}(): Promise<${1:EntityType}[]> {",
+      "  ",
+      "}"
+    ],
+    "description": "Méthode Query list vide pour resolver TypeGraphQL"
+  },
+
+  "Resolver Query Get": {
+    "prefix": "resolverQueryGet-ts",
+    "body": [
+      "@Query(() => [${1:EntityType}])",
+      "async get${2:EntityName}(): Promise<${1:EntityType}[]> {",
+      "  ",
+      "}"
+    ],
+    "description": "Méthode Query get vide pour resolver TypeGraphQL"
+  },
+
+  "Resolver Query GetById": {
+    "prefix": "resolverQueryGetById-ts",
+    "body": [
+      "@Query(() => ${1:EntityType}, { nullable: true })",
+      "async get${2:EntityName}ById(@Arg('id') id: number): Promise<${1:EntityType} | null> {",
+      "  ",
+      "}"
+    ],
+    "description": "Méthode Query getById vide pour resolver TypeGraphQL"
+  },
+
+  "Resolver Mutation Create": {
+    "prefix": "resolverMutationCreate-ts",
+    "body": [
+      "@Mutation(() => ${1:EntityType})",
+      "async create${2:EntityName}(@Arg('data') data: ${3:InputType}): Promise<${1:EntityType}> {",
+      "  ",
+      "}"
+    ],
+    "description": "Méthode Mutation create vide pour resolver TypeGraphQL"
+  },
+
+  "Resolver Mutation Update": {
+    "prefix": "resolverMutationUpdate-ts",
+    "body": [
+      "@Mutation(() => ${1:EntityType})",
+      "async update${2:EntityName}(@Arg('id') id: number, @Arg('data') data: ${3:InputType}): Promise<${1:EntityType}> {",
+      "  ",
+      "}"
+    ],
+    "description": "Méthode Mutation update vide pour resolver TypeGraphQL"
+  },
+
+  "Resolver Mutation Delete": {
+    "prefix": "resolverMutationDelete-ts",
+    "body": [
+      "@Mutation(() => Boolean)",
+      "async delete${1:EntityName}(@Arg('id') id: number): Promise<boolean> {",
+      "  ",
+      "}"
+    ],
+    "description": "Méthode Mutation delete vide pour resolver TypeGraphQL"
+  }
+}
