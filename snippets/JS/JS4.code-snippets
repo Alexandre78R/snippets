@@ -1,0 +1,108 @@
+{
+
+  // =====================================================
+  // ⚛️ REACT CONTEXT
+  // =====================================================
+
+  "Create context": {
+    "prefix": "context",
+    "body": [
+      "const ${1:MyContext} = React.createContext(${2:defaultValue});",
+      "",
+      "export const ${1:MyProvider} = ({ children }) => {",
+      "  const [${3:state}, set${4:State}] = React.useState(${5:initialValue});",
+      "",
+      "  const value = { ${3:state}, set${4:State} };",
+      "",
+      "  return <${1:MyContext}.Provider value={value}>{children}</${1:MyContext}.Provider>;",
+      "};"
+    ]
+  },
+
+  "Use context": {
+    "prefix": "usecontext",
+    "body": [
+      "const { ${1:state}, set${2:State} } = React.useContext(${3:MyContext});"
+    ]
+  },
+
+  // =====================================================
+  // ⚛️ USEEFFECT
+  // =====================================================
+
+  "useEffect basic": {
+    "prefix": "effect",
+    "body": [
+      "React.useEffect(() => {",
+      "  $1",
+      "}, [$2]);"
+    ]
+  },
+
+  "useEffect async fetch": {
+    "prefix": "effectasync",
+    "body": [
+      "React.useEffect(() => {",
+      "  const fetchData = async () => {",
+      "    try {",
+      "      $1",
+      "    } catch (error) {",
+      "      console.error(error);",
+      "    }",
+      "  };",
+      "  fetchData();",
+      "}, [$2]);"
+    ]
+  },
+
+  // =====================================================
+  // ⚛️ MAP LIST RENDER
+  // =====================================================
+
+  "Map list JSX": {
+    "prefix": "mapjsx",
+    "body": [
+      "{${1:items}.map((${2:item}, ${3:index}) => (",
+      "  <${4:Component} key={${3:index}} {...${2:item}} />",
+      "))}"
+    ]
+  },
+
+  "Map array simple": {
+    "prefix": "maparray",
+    "body": [
+      "${1:items}.map((${2:item}, ${3:index}) => {",
+      "  return $4;",
+      "});"
+    ]
+  },
+
+  // =====================================================
+  // ⚛️ REACT HOOK HELPERS
+  // =====================================================
+
+  "useState simple": {
+    "prefix": "state",
+    "body": [
+      "const [${1:state}, set${2:State}] = React.useState(${3:initial});"
+    ]
+  },
+
+  "useMemo simple": {
+    "prefix": "memo",
+    "body": [
+      "const ${1:value} = React.useMemo(() => {",
+      "  return $2;",
+      "}, [$3]);"
+    ]
+  },
+
+  "useCallback simple": {
+    "prefix": "callback",
+    "body": [
+      "const ${1:fn} = React.useCallback((${2:params}) => {",
+      "  $3",
+      "}, [$4]);"
+    ]
+  }
+}

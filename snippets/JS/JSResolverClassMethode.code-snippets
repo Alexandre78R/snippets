@@ -1,0 +1,61 @@
+{
+  "Resolver List Method Empty JS": {
+    "prefix": "resolverClassList-js",
+    "body": [
+      "async list${1:EntityName}() {",
+      "  ",
+      "}"
+    ],
+    "description": "Méthode list vide pour resolver GraphQL JS"
+  },
+
+  "Resolver Get Method Empty JS": {
+    "prefix": "resolverClassGet-js",
+    "body": [
+      "async get${1:EntityName}() {",
+      "  ",
+      "}"
+    ],
+    "description": "Méthode get vide pour resolver GraphQL JS"
+  },
+
+  "Resolver GetById Method Empty JS": {
+    "prefix": "resolverClassGetById-js",
+    "body": [
+      "async get${1:EntityName}ById(id) {",
+      "  ",
+      "}"
+    ],
+    "description": "Méthode getById vide pour resolver GraphQL JS"
+  },
+
+  "Resolver Create Method Empty JS": {
+    "prefix": "resolverCreate-js",
+    "body": [
+      "async create${1:EntityName}(data) {",
+      "  ",
+      "}"
+    ],
+    "description": "Méthode create vide pour resolver GraphQL JS"
+  },
+
+  "Resolver Update Method Empty JS": {
+    "prefix": "resolverClassUpdate-js",
+    "body": [
+      "async update${1:EntityName}(id, data) {",
+      "  ",
+      "}"
+    ],
+    "description": "Méthode update vide pour resolver GraphQL JS"
+  },
+
+  "Resolver Delete Method Empty JS": {
+    "prefix": "resolverClassDelete-js",
+    "body": [
+      "async delete${1:EntityName}(id) {",
+      "  ",
+      "}"
+    ],
+    "description": "Méthode delete vide pour resolver GraphQL JS"
+  }
+}

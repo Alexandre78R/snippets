@@ -1,0 +1,114 @@
+{
+  // =========================
+  // 🟢 REST API - TYPESCRIPT
+  // =========================
+
+  "Express server setup TS": {
+    "prefix": "expressserver-ts",
+    "body": [
+      "import express, { Request, Response, NextFunction } from 'express';",
+      "import cors from 'cors';",
+      "import bodyParser from 'body-parser';",
+      "",
+      "const app = express();",
+      "app.use(cors());",
+      "app.use(bodyParser.json());",
+      "",
+      "const PORT: number = parseInt(process.env.PORT || '3000', 10);",
+      "",
+      "app.listen(PORT, () => {",
+      "  console.log(`Server running on port ${PORT}`);",
+      "});"
+    ]
+  },
+
+  "Basic GET route TS": {
+    "prefix": "getroute-ts",
+    "body": [
+      "app.get('/${1:route}', (req: Request, res: Response) => {",
+      "  res.json({ message: '${2:Hello World}' });",
+      "});"
+    ]
+  },
+
+  "Basic POST route TS": {
+    "prefix": "postroute-ts",
+    "body": [
+      "app.post('/${1:route}', (req: Request, res: Response) => {",
+      "  const body: any = req.body;",
+      "  res.json({ data: body });",
+      "});"
+    ]
+  },
+
+    "Basic Update route TS": {
+    "prefix": "updateroute-ts",
+    "body": [
+      "app.put('/${1:items}/:id', (req: Request, res: Response) => {",
+      "  const { id }: { id: string } = req.params;",
+      "  const data: ${6:Type} = req.body;",
+      "  ${7:// update item}",
+      "  res.json({ id, ...data });",
+      "});",
+    ]
+  },
+
+    "Basic delete route TS": {
+    "prefix": "deleteroute-ts",
+    "body": [
+      "app.delete('/${1:items}/:id', (req: Request, res: Response) => {",
+      "  const { id }: { id: string } = req.params;",
+      "  ${8:// delete item}",
+      "  res.status(204).send();",
+      "});"
+    ]
+  },
+
+  "CRUD route template TS": {
+    "prefix": "crudroute-ts",
+    "body": [
+      "// Create",
+      "app.post('/${1:items}', (req: Request, res: Response) => {",
+      "  const item: ${2:Type} = req.body;",
+      "  ${3:// save item}",
+      "  res.status(201).json(item);",
+      "});",
+      "",
+      "// Read all",
+      "app.get('/${1:items}', (req: Request, res: Response) => {",
+      "  res.json(${4:items});",
+      "});",
+      "",
+      "// Read one",
+      "app.get('/${1:items}/:id', (req: Request, res: Response) => {",
+      "  const { id }: { id: string } = req.params;",
+      "  res.json(${5:item});",
+      "});",
+      "",
+      "// Update",
+      "app.put('/${1:items}/:id', (req: Request, res: Response) => {",
+      "  const { id }: { id: string } = req.params;",
+      "  const data: ${6:Type} = req.body;",
+      "  ${7:// update item}",
+      "  res.json({ id, ...data });",
+      "});",
+      "",
+      "// Delete",
+      "app.delete('/${1:items}/:id', (req: Request, res: Response) => {",
+      "  const { id }: { id: string } = req.params;",
+      "  ${8:// delete item}",
+      "  res.status(204).send();",
+      "});"
+    ]
+  },
+
+  "Error handling middleware TS": {
+    "prefix": "errorhandler-ts",
+    "body": [
+      "app.use((err: Error, req: Request, res: Response, next: NextFunction) => {",
+      "  console.error(err.stack);",
+      "  res.status(500).json({ message: err.message });",
+      "});"
+    ]
+  }
+}

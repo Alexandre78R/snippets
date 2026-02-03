@@ -1,0 +1,61 @@
+{
+  "Resolver List Method Empty": {
+    "prefix": "resolverClassList-ts",
+    "body": [
+      "async list${1:EntityName}(): Promise<${2:EntityType}[]> {",
+      "  ",
+      "}"
+    ],
+    "description": "Méthode list vide pour resolver GraphQL"
+  },
+
+  "Resolver Get Method Empty": {
+    "prefix": "resolverClassGet-ts",
+    "body": [
+      "async get${1:EntityName}(): Promise<${2:EntityType}[]> {",
+      "  ",
+      "}"
+    ],
+    "description": "Méthode get vide pour resolver GraphQL"
+  },
+
+  "Resolver GetById Method Empty": {
+    "prefix": "resolverClassGetById-ts",
+    "body": [
+      "async get${1:EntityName}ById(id: number): Promise<${2:EntityType} | null> {",
+      "  ",
+      "}"
+    ],
+    "description": "Méthode getById vide pour resolver GraphQL"
+  },
+
+  "Resolver Create Method Empty": {
+    "prefix": "resolverCreate-ts",
+    "body": [
+      "async create${1:EntityName}(data: ${2:InputType}): Promise<${3:EntityType}> {",
+      "  ",
+      "}"
+    ],
+    "description": "Méthode create vide pour resolver GraphQL"
+  },
+
+  "Resolver Update Method Empty": {
+    "prefix": "resolverClassUpdate-ts",
+    "body": [
+      "async update${1:EntityName}(id: number, data: ${2:InputType}): Promise<${3:EntityType}> {",
+      "  ",
+      "}"
+    ],
+    "description": "Méthode update vide pour resolver GraphQL"
+  },
+
+  "Resolver Delete Method Empty": {
+    "prefix": "resolverClassDelete-ts",
+    "body": [
+      "async delete${1:EntityName}(id: number): Promise<boolean> {",
+      "  ",
+      "}"
+    ],
+    "description": "Méthode delete vide pour resolver GraphQL"
+  }
+}

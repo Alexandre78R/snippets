@@ -1,0 +1,222 @@
+{
+  // =========================
+  // 🔵 TYPESCRIPT HELPERS
+  // =========================
+
+  "Arrow one line typed": {
+    "prefix": "arrow1-ts",
+    "body": [
+      "const ${1:name} = (${2:params}: ${3:type}): ${4:returnType} => ${5:expression};"
+    ]
+  },
+
+  "Destructure object typed": {
+    "prefix": "deso-ts",
+    "body": [
+      "const { ${1:prop1}, ${2:prop2} }: { ${1:prop1}: ${3:type}, ${2:prop2}: ${4:type} } = ${5:object};"
+    ]
+  },
+
+  "Destructure array typed": {
+    "prefix": "desa-ts",
+    "body": [
+      "const [${1:first}, ${2:second}]: [${3:type}, ${4:type}] = ${5:array};"
+    ]
+  },
+
+  "Optional chaining safe typed": {
+    "prefix": "opt-ts",
+    "body": [
+      "${1:obj}?.${2:prop} ?? ${3:null}"
+    ]
+  },
+
+  "Enum object typed": {
+    "prefix": "enum-ts",
+    "body": [
+      "export enum ${1:EnumName} {",
+      "  ${2:VALUE} = '${2}',",
+      "}"
+    ]
+  },
+
+  // =========================
+  // 🔥 ARRAY PRO TYPESCRIPT
+  // =========================
+
+  "Map return object typed": {
+    "prefix": "mapobj-ts",
+    "body": [
+      "const ${1:result}: ${2:Type}[] = ${3:items}.map((${4:item}: ${5:Type}) => ({",
+      "  $6",
+      "}));"
+    ]
+  },
+
+  "Reduce to object typed": {
+    "prefix": "reduceobj-ts",
+    "body": [
+      "const ${1:map}: Record<string, number> = ${2:items}.reduce((acc: Record<string, number>, ${3:item}: ${4:type}) => {",
+      "  const key = ${3:item}.${5:key};",
+      "  acc[key] = (acc[key] || 0) + 1;",
+      "  return acc;",
+      "}, {});"
+    ]
+  },
+
+  "Sum reduce numbers typed": {
+    "prefix": "sum-ts",
+    "body": [
+      "const ${1:total}: number = ${2:items}.reduce((acc: number, n: number) => acc + n, 0);"
+    ]
+  },
+
+  "Unique array typed": {
+    "prefix": "uniq-ts",
+    "body": [
+      "const ${1:unique}: ${2:Type}[] = [...new Set(${3:array})];"
+    ]
+  },
+
+  // =========================
+  // 🟣 ASYNC BACKEND (Node/Prisma) TYPESCRIPT
+  // =========================
+
+  "Async try return response typed": {
+    "prefix": "tryres-ts",
+    "body": [
+      "try {",
+      "  $1",
+      "  return { code: 200, message: 'Success' };",
+      "} catch (error: unknown) {",
+      "  const err: Error = error instanceof Error ? error : new Error('Unknown error');",
+      "  return { code: 500, message: err.message };",
+      "}"
+    ]
+  },
+
+  "Prisma findUnique by id typed": {
+    "prefix": "findid-ts",
+    "body": [
+      "const ${1:item}: ${2:Type} | null = await prisma.${3:model}.findUnique({",
+      "  where: { id: ${4:id} }",
+      "});"
+    ]
+  },
+
+  "Prisma create typed": {
+    "prefix": "pcreate-ts",
+    "body": [
+      "await prisma.${1:model}.create({",
+      "  data: ${2:data} as ${3:Type}",
+      "});"
+    ]
+  },
+
+  "Prisma update typed": {
+    "prefix": "pupdate-ts",
+    "body": [
+      "await prisma.${1:model}.update({",
+      "  where: { id: ${2:id} },",
+      "  data: ${3:data} as ${4:Type}",
+      "});"
+    ]
+  },
+
+  "Prisma delete typed": {
+    "prefix": "pdelete-ts",
+    "body": [
+      "await prisma.${1:model}.delete({",
+      "  where: { id: ${2:id} }",
+      "});"
+    ]
+  },
+
+  // =========================
+  // 🟢 GRAPHQL QUICK (TypeScript resolvers style)
+  // =========================
+
+  "GraphQL Query resolver typed": {
+    "prefix": "gqlquery-ts",
+    "body": [
+      "const ${1:name} = async (_: any, args: any, ctx: any): Promise<${2:Type}> => {",
+      "  $3",
+      "};"
+    ]
+  },
+
+  "GraphQL Mutation resolver typed": {
+    "prefix": "gqlmut-ts",
+    "body": [
+      "const ${1:name} = async (_: any, { input }: { input: ${2:InputType} }, ctx: any): Promise<${3:Type}> => {",
+      "  $4",
+      "};"
+    ]
+  },
+
+  "Admin only guard typed": {
+    "prefix": "adminonly-ts",
+    "body": [
+      "if (!ctx.user || ctx.user.role !== 'admin') {",
+      "  throw new Error('Unauthorized');",
+      "}"
+    ]
+  },
+
+  // =========================
+  // ⚛️ REACT PERF / HOOKS TYPESCRIPT
+  // =========================
+
+  "useCallback async typed": {
+    "prefix": "callbacka-ts",
+    "body": [
+      "const ${1:handler} = React.useCallback(async (): Promise<void> => {",
+      "  $2",
+      "}, [$3]);"
+    ]
+  },
+
+  "useMemo map list typed": {
+    "prefix": "memolist-ts",
+    "body": [
+      "const ${1:list}: ${2:Type}[] = React.useMemo(() => ${3:items}.map((${4:item}: ${5:Type}) => $6), [${3:items}]);"
+    ]
+  },
+
+  "useRef typed": {
+    "prefix": "ref-ts",
+    "body": [
+      "const ${1:ref} = React.useRef<${2:HTMLElement | null}>(null);"
+    ]
+  },
+
+  "Loading boolean typed": {
+    "prefix": "loading-ts",
+    "body": [
+      "const [loading, setLoading] = React.useState<boolean>(false);"
+    ]
+  },
+
+  // =========================
+  // 🧱 CLASS / STRUCTURE TYPESCRIPT
+  // =========================
+
+  "Constructor DI simple typed": {
+    "prefix": "ctor-ts",
+    "body": [
+      "constructor(private readonly ${1:service}: ${2:Type}) {}"
+    ]
+  },
+
+  "Model template typed": {
+    "prefix": "model-ts",
+    "body": [
+      "const ${1:model}: ${2:Type} = {",
+      "  id: null,",
+      "  createdAt: new Date(),",
+      "  updatedAt: new Date(),",
+      "  $3",
+      "};"
+    ]
+  }
+}

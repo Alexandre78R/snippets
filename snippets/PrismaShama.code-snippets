@@ -1,0 +1,44 @@
+{
+  "Prisma Schema User Table": {
+    "prefix": "prisma-user-table",
+    "body": [
+      "generator client {",
+      "  provider = \"prisma-client-js\"",
+      "}",
+      "",
+      "datasource db {",
+      "  provider = \"mysql\"",
+      "  url      = env(\"DATABASE_URL\")",
+      "}",
+      "",
+      "model User {",
+      "  id         Int      @id @default(autoincrement())",
+      "  name       String",
+      "  surname    String",
+      "  email      String   @unique",
+      "  phone      String?",
+      "  password   String",
+      "  ban        Boolean  @default(false)",
+      "  createdAt  DateTime @default(now())",
+      "  updatedAt  DateTime @updatedAt",
+      "}"
+    ],
+    "description": "Snippet VSCode : Prisma schema pour table User avec prénom, nom, email, téléphone, password, ban, timestamps"
+  },
+  "Prisma Generic Table": {
+    "prefix": "prisma-generic-table",
+    "body": [
+      "model ${1:EntityName} {",
+      "  id          Int      @id @default(autoincrement())",
+      "  name        String",
+      "  description String?",
+      "  isActive    Boolean  @default(true)",
+      "  createdAt   DateTime @default(now())",
+      "  updatedAt   DateTime @updatedAt",
+      "",
+      "  @@map(\"${2:${1:EntityName}_table}\")",
+      "}"
+    ],
+    "description": "Snippet VSCode : Prisma table générique avec id, name, description, isActive et timestamps"
+  }
+}

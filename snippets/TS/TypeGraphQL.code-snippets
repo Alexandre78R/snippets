@@ -1,0 +1,148 @@
+{
+  // =========================
+  // 🟢 GRAPHQL / TYPEGRAPHQL - TS
+  // =========================
+
+  "GraphQL Query resolver TS": {
+    "prefix": "gqlquery-ts",
+    "body": [
+      "@Query(() => ${1:ReturnType})",
+      "async ${2:resolverName}(@Arg('${3:args}', () => ${4:InputType}) args: ${4:InputType}, @Ctx() ctx: any): Promise<${1:ReturnType}> {",
+      "  try {",
+      "    $5",
+      "    return { code: 200, data: $6 };",
+      "  } catch (error: unknown) {",
+      "    const err: Error = error instanceof Error ? error : new Error('Unknown error');",
+      "    return { code: 500, message: err.message };",
+      "  }",
+      "}"
+    ]
+  },
+
+  "GraphQL Mutation resolver TS": {
+    "prefix": "gqlmut-ts",
+    "body": [
+      "@Mutation(() => ${1:ReturnType})",
+      "async ${2:mutationName}(@Arg('input') input: ${3:InputType}, @Ctx() ctx: any): Promise<${1:ReturnType}> {",
+      "  try {",
+      "    $4",
+      "    return { code: 200, data: $5 };",
+      "  } catch (error: unknown) {",
+      "    const err: Error = error instanceof Error ? error : new Error('Unknown error');",
+      "    return { code: 500, message: err.message };",
+      "  }",
+      "}"
+    ]
+  },
+
+  "GraphQL Admin Guard TS": {
+    "prefix": "adminonly-ts",
+    "body": [
+      "if (!ctx.user || ctx.user.role !== 'admin') {",
+      "  throw new Error('Unauthorized');",
+      "}"
+    ]
+  },
+
+  "GraphQL Input Type TS": {
+    "prefix": "inputtype-ts",
+    "body": [
+      "@InputType()",
+      "class ${1:InputName} {",
+      "  @Field(() => ${2:Type})",
+      "  ${3:field1}: ${2:Type};",
+      "",
+      "  @Field(() => ${4:Type})",
+      "  ${5:field2}: ${4:Type};",
+      "}"
+    ]
+  },
+
+  "GraphQL Output Type TS": {
+    "prefix": "outputtype-ts",
+    "body": [
+      "@ObjectType()",
+      "class ${1:OutputName} {",
+      "  @Field()",
+      "  code: number;",
+      "",
+      "  @Field()",
+      "  message: string;",
+      "",
+      "  @Field(() => ${2:DataType}, { nullable: true })",
+      "  data?: ${2:DataType};",
+      "}"
+    ]
+  },
+  "GraphQL Create Output TS": {
+    "prefix": "createoutput-ts",
+    "body": [
+        "@ObjectType()",
+        "class ${1:Create${2:Entity}Output} {",
+        "  @Field()",
+        "  code: number;",
+        "",
+        "  @Field()",
+        "  message: string;",
+        "",
+        "  @Field(() => ${2:Entity})",
+        "  created: ${2:Entity};",
+        "}"
+    ]
+    },
+    "GraphQL Update Output TS": {
+        "prefix": "updateoutput-ts",
+        "body": [
+            "@ObjectType()",
+            "class ${1:Update${2:Entity}Output} {",
+            "  @Field()",
+            "  code: number;",
+            "",
+            "  @Field()",
+            "  message: string;",
+            "",
+            "  @Field(() => ${2:Entity}, { nullable: true })",
+            "  updated?: ${2:Entity};",
+            "}"
+        ]
+    },
+    "GraphQL Delete Output TS": {
+        "prefix": "deleteoutput-ts",
+        "body": [
+            "@ObjectType()",
+            "class ${1:Delete${2:Entity}Output} {",
+            "  @Field()",
+            "  code: number;",
+            "",
+            "  @Field()",
+            "  message: string;",
+            "",
+            "  @Field(() => Boolean)",
+            "  success: boolean;",
+            "}"
+        ]
+    },
+    "GraphQL Extend Output TS": {
+        "prefix": "extendoutput-ts",
+        "body": [
+            "@ObjectType()",
+            "class ${1:Extended${2:BaseOutput}} extends ${2:BaseOutput} {",
+            "  @Field(() => ${3:ExtraType}, { nullable: true })",
+            "  extra?: ${3:ExtraType};",
+            "}"
+        ]
+    },
+"Try Catch Typed TS": {
+    "prefix": "tryr-ts",
+    "body": [
+      "try {",
+      "  $1",
+      "  return { code: 200, data: $2 };",
+      "} catch (error: unknown) {",
+      "  const err: Error = error instanceof Error ? error : new Error('Unknown error');",
+      "  console.error(err);",
+      "  return { code: 500, message: err.message };",
+      "}"
+    ]
+  }
+}

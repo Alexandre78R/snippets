@@ -1,0 +1,125 @@
+{
+  // =====================================================
+  // ⚛️ FORM HANDLERS / STATE UPDATES
+  // =====================================================
+
+  "Handle input change": {
+    "prefix": "handleinput",
+    "body": [
+      "const handle${1:Field}Change = (e) => set${2:State}(e.target.value);"
+    ]
+  },
+
+  "Handle checkbox change": {
+    "prefix": "handlecheckbox",
+    "body": [
+      "const handle${1:Field}Change = (e) => set${2:State}(e.target.checked);"
+    ]
+  },
+
+  "Handle select change": {
+    "prefix": "handleselect",
+    "body": [
+      "const handle${1:Field}Change = (e) => set${2:State}(e.target.value);"
+    ]
+  },
+
+  "Handle toggle boolean": {
+    "prefix": "handletoggle",
+    "body": [
+      "const handle${1:Toggle} = () => set${2:State}(prev => !prev);"
+    ]
+  },
+
+  "Handle add item to array": {
+    "prefix": "handleadd",
+    "body": [
+      "const handleAdd${1:Item} = (${2:item}) => set${3:Items}((prev) => [...prev, ${2:item}]);"
+    ]
+  },
+
+  "Handle remove item from array": {
+    "prefix": "handleremove",
+    "body": [
+      "const handleRemove${1:Item} = (id) => set${2:Items}((prev) => prev.filter(i => i.id !== id));"
+    ]
+  },
+
+  "Handle reset state": {
+    "prefix": "handlereset",
+    "body": [
+      "const handleReset${1:State} = () => set${1:State}(${2:initialState});"
+    ]
+  },
+
+  "Handle form submit": {
+    "prefix": "handlesubmit",
+    "body": [
+      "const handleSubmit = (e) => {",
+      "  e.preventDefault();",
+      "  $1",
+      "};"
+    ]
+  },
+
+  // =====================================================
+  // ⚛️ FETCH / ASYNC HANDLERS
+  // =====================================================
+
+  "Handle fetch async": {
+    "prefix": "handlefetch",
+    "body": [
+      "const handleFetch = async (${1:url}) => {",
+      "  try {",
+      "    setLoading(true);",
+      "    const res = await fetch(${1:url});",
+      "    const data = await res.json();",
+      "    set${2:Data}(data);",
+      "  } catch (error) {",
+      "    console.error(error);",
+      "  } finally {",
+      "    setLoading(false);",
+      "  }",
+      "};"
+    ]
+  },
+
+  "Handle error": {
+    "prefix": "handleerror",
+    "body": [
+      "const handleError = (error) => {",
+      "  console.error(error);",
+      "  setError(error.message || 'Something went wrong');",
+      "};"
+    ]
+  },
+
+  // =====================================================
+  // ⚛️ LIST / ARRAY HANDLERS
+  // =====================================================
+
+  "Handle map list JSX": {
+    "prefix": "mapjsx",
+    "body": [
+      "{${1:items}.map((${2:item}, ${3:index}) => (",
+      "  <${4:Component} key={${3:index}} {...${2:item}} />",
+      "))}"
+    ]
+  },
+
+  "Handle sort array": {
+    "prefix": "handlesort",
+    "body": [
+      "const handleSort${1:Key} = (key) => set${2:Items}((prev) => [...prev].sort((a, b) => a[key] > b[key] ? 1 : -1));"
+    ]
+  },
+
+  "Handle debounce input": {
+    "prefix": "handledebounce",
+    "body": [
+      "const handleDebounce = useCallback(debounce((value) => {",
+      "  set${1:Search}(value);",
+      "}, ${2:300}), []);"
+    ]
+  }
+}

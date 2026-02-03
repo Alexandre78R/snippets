@@ -1,0 +1,114 @@
+{
+  // =========================
+  // 🟢 REST API - JAVASCRIPT
+  // =========================
+
+  "Express server setup": {
+    "prefix": "expressserver-js",
+    "body": [
+      "const express = require('express');",
+      "const cors = require('cors');",
+      "const bodyParser = require('body-parser');",
+      "",
+      "const app = express();",
+      "app.use(cors());",
+      "app.use(bodyParser.json());",
+      "",
+      "const PORT = process.env.PORT || 3000;",
+      "",
+      "app.listen(PORT, () => {",
+      "  console.log(`Server running on port ${PORT}`);",
+      "});"
+    ]
+  },
+
+  "Basic GET route": {
+    "prefix": "getroute-js",
+    "body": [
+      "app.get('/${1:route}', (req, res) => {",
+      "  res.json({ message: '${2:Hello World}' });",
+      "});"
+    ]
+  },
+
+  "Basic POST route": {
+    "prefix": "postroute-js",
+    "body": [
+      "app.post('/${1:route}', (req, res) => {",
+      "  const body = req.body;",
+      "  res.json({ data: body });",
+      "});"
+    ]
+  },
+
+    "Basic UPDATE route": {
+    "prefix": "updateroute-js",
+    "body": [
+      "app.put('/${1:route}', (req, res) => {",
+      "  const { id } = req.params;",
+      "  const data = req.body;",
+      "  ${5:// update item}",
+      "  res.json({ id, ...data });",
+      "});"
+    ]
+  },
+
+  "Basic Delete route": {
+    "prefix": "deleteroute-js",
+    "body": [
+      "app.delete('/${1:route}', (req, res) => {",
+      "  const { id } = req.params;",
+      "  ${6:// delete item}",
+      "  res.status(204).send();",
+      "});"
+    ]
+  },
+
+  "CRUD route template": {
+    "prefix": "crudroute-js",
+    "body": [
+      "// Create",
+      "app.post('/${1:items}', (req, res) => {",
+      "  const item = req.body;",
+      "  ${2:// save item}",
+      "  res.status(201).json(item);",
+      "});",
+      "",
+      "// Read all",
+      "app.get('/${1:items}', (req, res) => {",
+      "  res.json(${3:items});",
+      "});",
+      "",
+      "// Read one",
+      "app.get('/${1:items}/:id', (req, res) => {",
+      "  const { id } = req.params;",
+      "  res.json(${4:item});",
+      "});",
+      "",
+      "// Update",
+      "app.put('/${1:items}/:id', (req, res) => {",
+      "  const { id } = req.params;",
+      "  const data = req.body;",
+      "  ${5:// update item}",
+      "  res.json({ id, ...data });",
+      "});",
+      "",
+      "// Delete",
+      "app.delete('/${1:items}/:id', (req, res) => {",
+      "  const { id } = req.params;",
+      "  ${6:// delete item}",
+      "  res.status(204).send();",
+      "});"
+    ]
+  },
+
+  "Error handling middleware": {
+    "prefix": "errorhandler-js",
+    "body": [
+      "app.use((err, req, res, next) => {",
+      "  console.error(err.stack);",
+      "  res.status(500).json({ message: 'Internal Server Error' });",
+      "});"
+    ]
+  }
+}

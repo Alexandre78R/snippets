@@ -1,0 +1,199 @@
+{
+  // =========================
+  // 🟡 TYPESCRIPT BASICS
+  // =========================
+
+  "Const typed": {
+    "prefix": "constt-ts",
+    "body": [
+      "const ${1:name}: ${2:type} = ${3:value};"
+    ]
+  },
+
+  "Let typed": {
+    "prefix": "lett-ts",
+    "body": [
+      "let ${1:name}: ${2:type} = ${3:value};"
+    ]
+  },
+
+  "Arrow Function typed": {
+    "prefix": "arrow-ts",
+    "body": [
+      "const ${1:fn} = (${2:params}): ${3:void} => {",
+      "  $4",
+      "};"
+    ]
+  },
+
+  "Async Arrow typed": {
+    "prefix": "asyncfn-ts",
+    "body": [
+      "const ${1:fn} = async (${2:params}): Promise<${3:void}> => {",
+      "  try {",
+      "    $4",
+      "  } catch (error) {",
+      "    console.error(error);",
+      "  }",
+      "};"
+    ]
+  },
+
+  // =========================
+  // 🔵 ARRAY HELPERS
+  // =========================
+
+  "Map typed": {
+    "prefix": "mapt-ts",
+    "body": [
+      "const ${1:result}: ${2:Type}[] = ${3:items}.map((${4:item}): ${2} => {",
+      "  return $5;",
+      "});"
+    ]
+  },
+
+  "Reduce typed": {
+    "prefix": "reducet-ts",
+    "body": [
+      "const ${1:result}: ${2:type} = ${3:items}.reduce<${2}>((acc, ${4:item}) => {",
+      "  return acc + $5;",
+      "}, ${6:0});"
+    ]
+  },
+
+  "ForEach typed": {
+    "prefix": "foreach-ts",
+    "body": [
+      "${1:items}.forEach((${2:item}: ${3:type}) => {",
+      "  $4",
+      "});"
+    ]
+  },
+
+  "Find typed": {
+    "prefix": "findt-ts",
+    "body": [
+      "const ${1:found} = ${2:items}.find((${3:item}: ${4:type}) => ${5:condition});"
+    ]
+  },
+
+  "Filter typed": {
+    "prefix": "filtert-ts",
+    "body": [
+      "const ${1:filtered} = ${2:items}.filter((${3:item}: ${4:type}) => ${5:condition});"
+    ]
+  },
+
+  "GroupBy reduce typed": {
+    "prefix": "groupby-ts",
+    "body": [
+      "const ${1:map}: Record<string, number> = ${2:items}.reduce((acc: Record<string, number>, ${3:item}: ${4:type}) => {",
+      "  const key = ${3:item}.${5:key};",
+      "  acc[key] = (acc[key] || 0) + 1;",
+      "  return acc;",
+      "}, {});"
+    ]
+  },
+
+  // =========================
+  // 🟣 CLASS / OOP
+  // =========================
+
+  "Class typed": {
+    "prefix": "class-ts",
+    "body": [
+      "export class ${1:ClassName} {",
+      "  constructor(private readonly ${2:service}: ${3:Type}) {}",
+      "",
+      "  ${4:method}(): void {",
+      "    $5",
+      "  }",
+      "}"
+    ]
+  },
+
+  "Service Object pattern typed": {
+    "prefix": "serviceobj-ts",
+    "body": [
+      "export const ${1:serviceName} = {",
+      "  async findAll(): Promise<${2:Type}[]> {",
+      "    return prisma.${3:model}.findMany();",
+      "  },",
+      "",
+      "  async findById(id: number): Promise<${2:Type} | null> {",
+      "    return prisma.${3:model}.findUnique({ where: { id } });",
+      "  }",
+      "};"
+    ]
+  },
+
+  // =========================
+  // ⚛️ REACT HOOKS TYPESCRIPT
+  // =========================
+
+  "useState typed": {
+    "prefix": "state-ts",
+    "body": [
+      "const [${1:value}, set${2:Value}] = React.useState<${3:type}>(${4:initial});"
+    ]
+  },
+
+  "useMemo typed": {
+    "prefix": "memo-ts",
+    "body": [
+      "const ${1:value} = React.useMemo<${2:type}>(() => {",
+      "  return $3;",
+      "}, [$4]);"
+    ]
+  },
+
+  "useCallback typed": {
+    "prefix": "callback-ts",
+    "body": [
+      "const ${1:handler} = React.useCallback((${2:params}: ${3:type}) => {",
+      "  $4",
+      "}, [$5]);"
+    ]
+  },
+
+  "Async useEffect typed": {
+    "prefix": "ueasync-ts",
+    "body": [
+      "React.useEffect(() => {",
+      "  const fetchData = async (): Promise<void> => {",
+      "    $1",
+      "  };",
+      "  fetchData();",
+      "}, [$2]);"
+    ]
+  },
+
+  // =========================
+  // 🟢 BACKEND HELPERS TYPESCRIPT
+  // =========================
+
+  "Try Catch Return typed": {
+    "prefix": "tryr-ts",
+    "body": [
+      "try {",
+      "  $1",
+      "  return { code: 200, message: 'Success' };",
+      "} catch (error: unknown) {",
+      "  const err: Error = error instanceof Error ? error : new Error('Unknown error');",
+      "  return { code: 500, message: err.message };",
+      "}"
+    ]
+  },
+
+  "Object Map counter typed": {
+    "prefix": "recordmap-ts",
+    "body": [
+      "const ${1:map}: Record<string, number> = {};",
+      "",
+      "${2:items}.forEach((${3:item}: ${4:type}) => {",
+      "  const key = ${3:item}.${5:key};",
+      "  ${1:map}[key] = (${1:map}[key] || 0) + 1;",
+      "});"
+    ]
+  }
+}

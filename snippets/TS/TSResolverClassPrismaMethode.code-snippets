@@ -1,0 +1,100 @@
+{
+  "Resolver List Method Prisma": {
+    "prefix": "resolverClassPrismaList-ts",
+    "body": [
+      "async list${1:EntityName}(): Promise<${2:EntityType}[]> {",
+      "  try {",
+      "    const result = await ${3:prisma}.${4:entity}.findMany();",
+      "    return result;",
+      "  } catch (err) {",
+      "    console.error('Erreur list${1} :', err);",
+      "    throw new Error('Impossible de lister ${1}');",
+      "  }",
+      "}"
+    ],
+    "description": "Méthode list pour resolver GraphQL"
+  },
+
+  "Resolver Get Method Prisma": {
+    "prefix": "resolverClassPrismaGet-ts",
+    "body": [
+      "async get${1:EntityName}(): Promise<${2:EntityType}[]> {",
+      "  try {",
+      "    const result = await ${3:prisma}.${4:entity}.findMany();",
+      "    return result;",
+      "  } catch (err) {",
+      "    console.error('Erreur get${1} :', err);",
+      "    throw new Error('Impossible de récupérer ${1}');",
+      "  }",
+      "}"
+    ],
+    "description": "Méthode get pour resolver GraphQL"
+  },
+
+  "Resolver GetById Method Prisma": {
+    "prefix": "resolverClassPrismaGetById-ts",
+    "body": [
+      "async get${1:EntityName}ById(id: number): Promise<${2:EntityType} | null> {",
+      "  try {",
+      "    const result = await ${3:prisma}.${4:entity}.findUnique({ where: { id } });",
+      "    return result;",
+      "  } catch (err) {",
+      "    console.error('Erreur get${1}ById :', err);",
+      "    throw new Error('Impossible de récupérer ${1} par ID');",
+      "  }",
+      "}"
+    ],
+    "description": "Méthode getById pour resolver GraphQL"
+  },
+
+  "Resolver Create Method Prisma" : {
+    "prefix": "resolverClassPrismaCreate-ts",
+    "body": [
+      "async create${1:EntityName}(data: ${2:InputType}): Promise<${3:EntityType}> {",
+      "  try {",
+      "    const result = await ${4:prisma}.${5:entity}.create({ data });",
+      "    return result;",
+      "  } catch (err) {",
+      "    console.error('Erreur create${1} :', err);",
+      "    throw new Error('Impossible de créer ${1}');",
+      "  }",
+      "}"
+    ],
+    "description": "Méthode create pour resolver GraphQL"
+  },
+
+  "Resolver Update Method Prisma": {
+    "prefix": "resolverClassPrismaUpdate-ts",
+    "body": [
+      "async update${1:EntityName}(id: number, data: ${2:InputType}): Promise<${3:EntityType}> {",
+      "  try {",
+      "    const result = await ${4:prisma}.${5:entity}.update({",
+      "      where: { id },",
+      "      data",
+      "    });",
+      "    return result;",
+      "  } catch (err) {",
+      "    console.error('Erreur update${1} :', err);",
+      "    throw new Error('Impossible de mettre à jour ${1}');",
+      "  }",
+      "}"
+    ],
+    "description": "Méthode update pour resolver GraphQL"
+  },
+
+  "Resolver Delete Method Prisma": {
+    "prefix": "resolverClassPrismaDelete-ts",
+    "body": [
+      "async delete${1:EntityName}(id: number): Promise<boolean> {",
+      "  try {",
+      "    await ${2:prisma}.${3:entity}.delete({ where: { id } });",
+      "    return true;",
+      "  } catch (err) {",
+      "    console.error('Erreur delete${1} :', err);",
+      "    throw new Error('Impossible de supprimer ${1}');",
+      "  }",
+      "}"
+    ],
+    "description": "Méthode delete pour resolver GraphQL"
+  }
+}

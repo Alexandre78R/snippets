@@ -1,0 +1,223 @@
+{
+  // =========================
+  // 🔵 JAVASCRIPT HELPERS
+  // =========================
+
+  "Arrow one line": {
+    "prefix": "arrow1",
+    "body": [
+      "const ${1:name} = (${2:params}) => ${3:expression};"
+    ]
+  },
+
+  "Destructure object": {
+    "prefix": "deso",
+    "body": [
+      "const { ${1:prop1}, ${2:prop2} } = ${3:object};"
+    ]
+  },
+
+  "Destructure array": {
+    "prefix": "desa",
+    "body": [
+      "const [${1:first}, ${2:second}] = ${3:array};"
+    ]
+  },
+
+  "Optional chaining safe": {
+    "prefix": "opt",
+    "body": [
+      "${1:obj}?.${2:prop} ?? ${3:null}"
+    ]
+  },
+
+  "Enum object (JS alternative)": {
+    "prefix": "enum",
+    "body": [
+      "export const ${1:EnumName} = Object.freeze({",
+      "  ${2:VALUE}: '${2}'",
+      "});"
+    ]
+  },
+
+  // =========================
+  // 🔥 ARRAY PRO
+  // =========================
+
+  "Map return object": {
+    "prefix": "mapobj",
+    "body": [
+      "const ${1:result} = ${2:items}.map((${3:item}) => ({",
+      "  $4",
+      "}));"
+    ]
+  },
+
+  "Reduce to object": {
+    "prefix": "reduceobj",
+    "body": [
+      "const ${1:map} = ${2:items}.reduce((acc, ${3:item}) => {",
+      "  const key = ${4:item.key};",
+      "  acc[key] = (acc[key] || 0) + 1;",
+      "  return acc;",
+      "}, {});"
+    ]
+  },
+
+  "Sum reduce numbers": {
+    "prefix": "sum",
+    "body": [
+      "const ${1:total} = ${2:items}.reduce((acc, n) => acc + n, 0);"
+    ]
+  },
+
+  "Unique array": {
+    "prefix": "uniq",
+    "body": [
+      "const ${1:unique} = [...new Set(${2:array})];"
+    ]
+  },
+
+  // =========================
+  // 🟣 ASYNC BACKEND (Node/Prisma)
+  // =========================
+
+  "Async try return response": {
+    "prefix": "tryres",
+    "body": [
+      "try {",
+      "  $1",
+      "  return { code: 200, message: 'Success' };",
+      "} catch (error) {",
+      "  return { code: 500, message: error.message };",
+      "}"
+    ]
+  },
+
+  "Prisma findUnique by id": {
+    "prefix": "findid",
+    "body": [
+      "const ${1:item} = await prisma.${2:model}.findUnique({",
+      "  where: { id: ${3:id} }",
+      "});"
+    ]
+  },
+
+  "Prisma create": {
+    "prefix": "pcreate",
+    "body": [
+      "await prisma.${1:model}.create({",
+      "  data: ${2:data}",
+      "});"
+    ]
+  },
+
+  "Prisma update": {
+    "prefix": "pupdate",
+    "body": [
+      "await prisma.${1:model}.update({",
+      "  where: { id: ${2:id} },",
+      "  data: ${3:data}",
+      "});"
+    ]
+  },
+
+  "Prisma delete": {
+    "prefix": "pdelete",
+    "body": [
+      "await prisma.${1:model}.delete({",
+      "  where: { id: ${2:id} }",
+      "});"
+    ]
+  },
+
+  // =========================
+  // 🟢 GRAPHQL QUICK (JS resolvers style)
+  // =========================
+
+  "GraphQL Query resolver": {
+    "prefix": "gqlquery",
+    "body": [
+      "const ${1:name} = async (_, args, ctx) => {",
+      "  $2",
+      "};"
+    ]
+  },
+
+  "GraphQL Mutation resolver": {
+    "prefix": "gqlmut",
+    "body": [
+      "const ${1:name} = async (_, { input }, ctx) => {",
+      "  $2",
+      "};"
+    ]
+  },
+
+  "Admin only guard": {
+    "prefix": "adminonly",
+    "body": [
+      "if (!ctx.user || ctx.user.role !== 'admin') {",
+      "  throw new Error('Unauthorized');",
+      "}"
+    ]
+  },
+
+  // =========================
+  // ⚛️ REACT PERF / HOOKS
+  // =========================
+
+  "useCallback async": {
+    "prefix": "callbacka",
+    "body": [
+      "const ${1:handler} = React.useCallback(async () => {",
+      "  $2",
+      "}, [$3]);"
+    ]
+  },
+
+  "useMemo map list": {
+    "prefix": "memolist",
+    "body": [
+      "const ${1:list} = React.useMemo(() => ${2:items}.map($3), [${2:items}]);"
+    ]
+  },
+
+  "useRef": {
+    "prefix": "ref",
+    "body": [
+      "const ${1:ref} = React.useRef(null);"
+    ]
+  },
+
+  "Loading boolean": {
+    "prefix": "loading",
+    "body": [
+      "const [loading, setLoading] = React.useState(false);"
+    ]
+  },
+
+  // =========================
+  // 🧱 CLASS / STRUCTURE
+  // =========================
+
+  "Constructor DI simple": {
+    "prefix": "ctor",
+    "body": [
+      "constructor(${1:service}) {",
+      "  this.${1} = ${1};",
+      "}"
+    ]
+  },
+
+  "Model template (JS object)": {
+    "prefix": "model",
+    "body": [
+      "const ${1:model} = {",
+      "  id: null,",
+      "  createdAt: new Date(),",
+      "  updatedAt: new Date(),",
+      "  $2",
+      "};"
+    ]
+  }
+}

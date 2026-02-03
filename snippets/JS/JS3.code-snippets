@@ -1,0 +1,281 @@
+{
+  // =====================================================
+  // 🔵 VARIABLES BASICS (JS)
+  // =====================================================
+
+  "const": {
+    "prefix": "const",
+    "body": ["const ${1:name} = ${2:value};"]
+  },
+
+  "let": {
+    "prefix": "let",
+    "body": ["let ${1:name} = ${2:value};"]
+  },
+
+  "object model": {
+    "prefix": "model",
+    "body": [
+      "const ${1:model} = {",
+      "  $2",
+      "};"
+    ]
+  },
+
+  "enum object (JS alternative)": {
+    "prefix": "enum",
+    "body": [
+      "export const ${1:EnumName} = Object.freeze({",
+      "  ${2:VALUE}: '${2}'",
+      "});"
+    ]
+  },
+
+  // =====================================================
+  // 🔥 FUNCTIONS
+  // =====================================================
+
+  "arrow function": {
+    "prefix": "arrow",
+    "body": [
+      "const ${1:name} = (${2:params}) => {",
+      "  $3",
+      "};"
+    ]
+  },
+
+  "arrow one line": {
+    "prefix": "arrow1",
+    "body": [
+      "const ${1:name} = (${2:params}) => ${3:expression};"
+    ]
+  },
+
+  "async function": {
+    "prefix": "asyncfn",
+    "body": [
+      "const ${1:name} = async (${2:params}) => {",
+      "  try {",
+      "    $3",
+      "  } catch (error) {",
+      "    console.error(error);",
+      "  }",
+      "};"
+    ]
+  },
+
+  // =====================================================
+  // 🟣 ARRAYS
+  // =====================================================
+
+  "map": {
+    "prefix": "map",
+    "body": [
+      "${1:items}.map((${2:item}) => {",
+      "  return $3;",
+      "});"
+    ]
+  },
+
+  "map return object": {
+    "prefix": "mapobj",
+    "body": [
+      "${1:items}.map((${2:item}) => ({",
+      "  $3",
+      "}));"
+    ]
+  },
+
+  "reduce": {
+    "prefix": "reduce",
+    "body": [
+      "${1:items}.reduce((acc, ${2:item}) => {",
+      "  return acc;",
+      "}, ${3:initial});"
+    ]
+  },
+
+  "reduce number sum": {
+    "prefix": "sum",
+    "body": [
+      "${1:items}.reduce((acc, n) => acc + n, 0);"
+    ]
+  },
+
+  "filter": {
+    "prefix": "filter",
+    "body": [
+      "${1:items}.filter((${2:item}) => ${3:condition});"
+    ]
+  },
+
+  "find": {
+    "prefix": "find",
+    "body": [
+      "${1:items}.find((${2:item}) => ${3:condition});"
+    ]
+  },
+
+  "forEach": {
+    "prefix": "foreach",
+    "body": [
+      "${1:items}.forEach((${2:item}) => {",
+      "  $3",
+      "});"
+    ]
+  },
+
+  "unique array": {
+    "prefix": "uniq",
+    "body": [
+      "const ${1:unique} = [...new Set(${2:array})];"
+    ]
+  },
+
+  // =====================================================
+  // 🟢 OBJECTS
+  // =====================================================
+
+  "destructure object": {
+    "prefix": "deso",
+    "body": [
+      "const { ${1:a}, ${2:b} } = ${3:obj};"
+    ]
+  },
+
+  "destructure array": {
+    "prefix": "desa",
+    "body": [
+      "const [${1:first}, ${2:second}] = ${3:arr};"
+    ]
+  },
+
+  "object map init": {
+    "prefix": "record",
+    "body": [
+      "const ${1:map} = {};"
+    ]
+  },
+
+  // =====================================================
+  // 🔵 TRY CATCH
+  // =====================================================
+
+  "try catch": {
+    "prefix": "try",
+    "body": [
+      "try {",
+      "  $1",
+      "} catch (error) {",
+      "  console.error(error);",
+      "}"
+    ]
+  },
+
+  "try catch return": {
+    "prefix": "tryr",
+    "body": [
+      "try {",
+      "  $1",
+      "  return ${2};",
+      "} catch (error) {",
+      "  console.error(error);",
+      "  return ${3:null};",
+      "}"
+    ]
+  },
+
+  // =====================================================
+  // ⚛️ REACT GENERIC (JS)
+  // =====================================================
+
+  "useState": {
+    "prefix": "state",
+    "body": [
+      "const [${1:value}, set${2:Value}] = React.useState(${3:initial});"
+    ]
+  },
+
+  "useEffect": {
+    "prefix": "effect",
+    "body": [
+      "React.useEffect(() => {",
+      "  $1",
+      "}, [$2]);"
+    ]
+  },
+
+  "useMemo": {
+    "prefix": "memo",
+    "body": [
+      "const ${1:value} = React.useMemo(() => {",
+      "  return $2;",
+      "}, [$3]);"
+    ]
+  },
+
+  "useCallback": {
+    "prefix": "callback",
+    "body": [
+      "const ${1:fn} = React.useCallback((${2:params}) => {",
+      "  $3",
+      "}, [$4]);"
+    ]
+  },
+
+  "useRef": {
+    "prefix": "ref",
+    "body": [
+      "const ${1:ref} = React.useRef(null);"
+    ]
+  },
+
+  // =====================================================
+  // 🔴 GRAPHQL GENERIC (client side gql)
+  // =====================================================
+
+  "gql query": {
+    "prefix": "gqlq",
+    "body": [
+      "export const ${1:NAME} = gql`",
+      "  query ${2:QueryName} {",
+      "    ${3:resolver} {",
+      "      $4",
+      "    }",
+      "  }",
+      "`;"
+    ]
+  },
+
+  "gql mutation": {
+    "prefix": "gqlm",
+    "body": [
+      "export const ${1:NAME} = gql`",
+      "  mutation ${2:MutationName}($data: ${3:Input!}) {",
+      "    ${4:resolver}(data: $data) {",
+      "      $5",
+      "    }",
+      "  }",
+      "`;"
+    ]
+  },
+
+  // =====================================================
+  // 🟡 CLASS (JS)
+  // =====================================================
+
+  "class": {
+    "prefix": "class",
+    "body": [
+      "export class ${1:ClassName} {",
+      "  constructor(${2:params}) {",
+      "    $3",
+      "  }",
+      "",
+      "  ${4:method}() {",
+      "    $5",
+      "  }",
+      "}"
+    ]
+  }
+}

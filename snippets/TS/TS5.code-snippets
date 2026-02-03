@@ -1,0 +1,127 @@
+{
+  // =====================================================
+  // ⚛️ FORM HANDLERS / STATE UPDATES - TYPESCRIPT
+  // =====================================================
+
+  "Handle input change typed": {
+    "prefix": "handleinput-ts",
+    "body": [
+      "const handle${1:Field}Change = (e: React.ChangeEvent<HTMLInputElement>): void => set${2:State}(e.target.value);"
+    ]
+  },
+
+  "Handle checkbox change typed": {
+    "prefix": "handlecheckbox-ts",
+    "body": [
+      "const handle${1:Field}Change = (e: React.ChangeEvent<HTMLInputElement>): void => set${2:State}(e.target.checked);"
+    ]
+  },
+
+  "Handle select change typed": {
+    "prefix": "handleselect-ts",
+    "body": [
+      "const handle${1:Field}Change = (e: React.ChangeEvent<HTMLSelectElement>): void => set${2:State}(e.target.value);"
+    ]
+  },
+
+  "Handle toggle boolean typed": {
+    "prefix": "handletoggle-ts",
+    "body": [
+      "const handle${1:Toggle} = (): void => set${2:State}((prev: boolean) => !prev);"
+    ]
+  },
+
+  "Handle add item to array typed": {
+    "prefix": "handleadd-ts",
+    "body": [
+      "const handleAdd${1:Item} = (item: ${2:Type}): void => set${3:Items}((prev: ${2:Type}[]) => [...prev, item]);"
+    ]
+  },
+
+  "Handle remove item from array typed": {
+    "prefix": "handleremove-ts",
+    "body": [
+      "const handleRemove${1:Item} = (id: number | string): void => set${2:Items}((prev: { id: number | string }[]) => prev.filter(i => i.id !== id));"
+    ]
+  },
+
+  "Handle reset state typed": {
+    "prefix": "handlereset-ts",
+    "body": [
+      "const handleReset${1:State} = (): void => set${1:State}(${2:initialState});"
+    ]
+  },
+
+  "Handle form submit typed": {
+    "prefix": "handlesubmit-ts",
+    "body": [
+      "const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {",
+      "  e.preventDefault();",
+      "  $1",
+      "};"
+    ]
+  },
+
+  // =====================================================
+  // ⚛️ FETCH / ASYNC HANDLERS - TYPESCRIPT
+  // =====================================================
+
+  "Handle fetch async typed": {
+    "prefix": "handlefetch-ts",
+    "body": [
+      "const handleFetch = async (url: string): Promise<void> => {",
+      "  try {",
+      "    setLoading(true);",
+      "    const res: Response = await fetch(url);",
+      "    const data: ${1:Type} = await res.json();",
+      "    set${2:Data}(data);",
+      "  } catch (error: unknown) {",
+      "    const err: Error = error instanceof Error ? error : new Error('Unknown error');",
+      "    console.error(err);",
+      "  } finally {",
+      "    setLoading(false);",
+      "  }",
+      "};"
+    ]
+  },
+
+  "Handle error typed": {
+    "prefix": "handleerror-ts",
+    "body": [
+      "const handleError = (error: unknown): void => {",
+      "  const err: Error = error instanceof Error ? error : new Error('Unknown error');",
+      "  console.error(err);",
+      "  setError(err.message || 'Something went wrong');",
+      "};"
+    ]
+  },
+
+  // =====================================================
+  // ⚛️ LIST / ARRAY HANDLERS - TYPESCRIPT
+  // =====================================================
+
+  "Handle map list JSX typed": {
+    "prefix": "mapjsx-ts",
+    "body": [
+      "{${1:items}.map((${2:item}: ${3:Type}, ${3:index}: number) => (",
+      "  <${4:Component} key={${3:index}} {...${2:item}} />",
+      "))}"
+    ]
+  },
+
+  "Handle sort array typed": {
+    "prefix": "handlesort-ts",
+    "body": [
+      "const handleSort${1:Key} = (key: keyof ${2:Type}): void => set${3:Items}((prev: ${2:Type}[]) => [...prev].sort((a, b) => a[key] > b[key] ? 1 : -1));"
+    ]
+  },
+
+  "Handle debounce input typed": {
+    "prefix": "handledebounce-ts",
+    "body": [
+      "const handleDebounce = React.useCallback(debounce((value: string): void => {",
+      "  set${1:Search}(value);",
+      "}, ${2:300}), []);"
+    ]
+  }
+}

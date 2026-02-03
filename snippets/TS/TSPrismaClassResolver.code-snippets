@@ -1,0 +1,122 @@
+{
+  "Prisma TS Resolver Class": {
+    "prefix": "prisma-resolver-class-ts",
+    "body": [
+      "import { PrismaClient, ${1:Entity} } from '@prisma/client';",
+      "const prisma = new PrismaClient();",
+      "",
+      "export class ${2:Entity}Resolver {",
+      "  async findAll(): Promise<${1:Entity}[]> {",
+      "    try {",
+      "      return await prisma.${3:entity}.findMany();",
+      "    } catch (err) {",
+      "      console.error('Error in findAll:', err);",
+      "      return [];",
+      "    }",
+      "  }",
+      "",
+      "  async findById(id: number): Promise<${1:Entity} | null> {",
+      "    try {",
+      "      return await prisma.${3:entity}.findUnique({ where: { id } });",
+      "    } catch (err) {",
+      "      console.error('Error in findById:', err);",
+      "      return null;",
+      "    }",
+      "  }",
+      "",
+      "  async create(data: Omit<${1:Entity}, 'id' | 'createdAt' | 'updatedAt'>): Promise<${1:Entity} | null> {",
+      "    try {",
+      "      return await prisma.${3:entity}.create({ data });",
+      "    } catch (err) {",
+      "      console.error('Error in create:', err);",
+      "      return null;",
+      "    }",
+      "  }",
+      "",
+      "  async update(id: number, data: Partial<${1:Entity}>): Promise<${1:Entity} | null> {",
+      "    try {",
+      "      return await prisma.${3:entity}.update({ where: { id }, data });",
+      "    } catch (err) {",
+      "      console.error('Error in update:', err);",
+      "      return null;",
+      "    }",
+      "  }",
+      "",
+      "  async delete(id: number): Promise<${1:Entity} | null> {",
+      "    try {",
+      "      return await prisma.${3:entity}.delete({ where: { id } });",
+      "    } catch (err) {",
+      "      console.error('Error in delete:', err);",
+      "      return null;",
+      "    }",
+      "  }",
+      "}",
+      "",
+      "// Exemple d'export pour instance unique",
+      "// export const userResolver = new UserResolver();"
+    ],
+    "description": "Snippet VSCode : Resolver TypeScript Prisma CRUD en class pour une table générique"
+  },
+  "Try Catch with typed Error (TS)": {
+    "prefix": "trycatch-ts",
+    "body": [
+      "try {",
+      "  $1",
+      "  return { code: 200, message: 'Success' };",
+      "} catch (error: unknown) {",
+      "  const err: Error = error instanceof Error ? error : new Error('Unknown error');",
+      "  return { code: 500, message: err.message };",
+      "}"
+    ]
+  },
+  
+  "Prisma findUnique by id typed": {
+    "prefix": "pfindid-ts",
+    "body": [
+      "const ${1:item}: ${2:Type} | null = await prisma.${3:model}.findUnique({",
+      "  where: { id: ${4:id} }",
+      "});"
+    ]
+  },
+  
+  "Prisma create typed": {
+    "prefix": "pcreate-ts",
+    "body": [
+      "await prisma.${1:model}.create({",
+      "  data: ${2:data} as ${3:Type}",
+      "});"
+    ]
+  },
+  
+  "Prisma update typed": {
+    "prefix": "pupdate-ts",
+    "body": [
+      "await prisma.${1:model}.update({",
+      "  where: { id: ${2:id} },",
+      "  data: ${3:data} as ${4:Type}",
+      "});"
+    ]
+  },
+  
+  "Prisma delete typed": {
+    "prefix": "pdelete-ts",
+    "body": [
+      "await prisma.${1:model}.delete({",
+      "  where: { id: ${2:id} }",
+      "});"
+    ]
+  },
+  
+  // =========================
+  // 🟢 GRAPHQL QUICK (TypeScript resolvers style)
+  // =========================
+  
+  "GraphQL Query resolver typed": {
+    "prefix": "gqlquery-ts",
+    "body": [
+      "const ${1:name} = async (_: any, args: any, ctx: any): Promise<${2:Type}> => {",
+      "  $3",
+      "};"
+    ]
+  },
+}
